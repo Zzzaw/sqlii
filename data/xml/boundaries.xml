@@ -1,0 +1,80 @@
+<!--
+Tag: <boundary>
+    How to prepend and append to the test ' <payload><comment> ' string.
+
+    sub-tag: <clause>
+        In which clause the payload can work.
+
+        Valid values:
+            0: Always
+            1: WHERE / HAVING
+            2: GROUP BY
+            3: ORDER BY
+            4: LIMIT
+            5: OFFSET
+            6: TOP
+            7: Table name
+            8: Column name
+            9: Pre-WHERE (non-query)
+
+    Sub-tag: <where>
+        Where to add our '<prefix> <payload><comment> <suffix>' string.
+
+        Valid values:
+            1: When the value of <test>'s <where> is 1.
+            2: When the value of <test>'s <where> is 2.
+            3: When the value of <test>'s <where> is 3.
+
+    Sub-tag: <ptype>
+        What is the parameter value type.
+
+        Valid values:
+            1: Unescaped numeric
+            2: Single quoted string
+            3: LIKE single quoted string
+            4: Double quoted string
+            5: LIKE double quoted string
+            6: Identifier (e.g. column name)
+
+    Sub-tag: <prefix>
+        A string to prepend to the payload.
+
+    Sub-tag: <suffix>
+        A string to append to the payload.
+
+    Sub-tag: <desc>
+        How the payload looks like
+
+    Formats :
+
+        required:<clause> <where> <ptype> <prefix> <suffix>
+        optional:
+
+    <boundary>
+        <clause></clause>
+        <where></where>
+        <ptype></ptype>
+        <prefix></prefix>
+        <suffix></suffix>
+    </boundary>
+-->
+
+<root>
+    <boundary>
+        <clause>1</clause>
+        <where>1,2</where>
+        <ptype>2</ptype>
+        <desc>param=value'[PAYLOAD]#</desc>
+        <prefix>[QUOTE]</prefix>
+        <suffix>[COMMENT]</suffix>
+    </boundary>
+
+    <boundary>
+        <clause>1</clause>
+        <where>1,2</where>
+        <ptype>2</ptype>
+        <desc>param=value'[PAYLOAD] and'orign'='orig</desc>
+        <prefix>[QUOTE]</prefix>
+        <suffix> [AND][QUOTE][_ORIGINAL][QUOTE][=][QUOTE][_ORIGINAL]</suffix>
+    </boundary>
+</root>

