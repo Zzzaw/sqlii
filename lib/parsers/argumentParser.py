@@ -5,11 +5,11 @@ from lib.common import logger
 
 def getArguments():
 	parse=optparse.OptionParser(usage='"usage:%prog [options] arg1,arg2"',version="%prog 1.2")  
-	parse.add_option('-u','--url',dest='url',type=str,help='Target URL')
+	parse.add_option('-u','--url',dest='url',type=str,help='Target URL (e.g. "http://www.site.com/search.php?id=1")')
 	parse.add_option('--method',dest='method',help='Method')
 	parse.add_option('--data',dest='data',help='POST data')
 	parse.add_option('-p',dest='testParam',help='One parameter for tests')
-	parse.add_option('--technique',dest='technique',help='SQL injection techniques to use (default "BEUSTQ")')
+	parse.add_option('--technique',dest='technique',help='SQL injection techniques to use (T/E/U/B)')
 
 	options,args=parse.parse_args()
 	return options

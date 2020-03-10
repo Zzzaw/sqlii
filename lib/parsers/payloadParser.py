@@ -1,6 +1,5 @@
 import re
 import random
-from lib.common import xmlLoader
 from lib.data.settings import *
 
 def renderValue(orig, paramName, origValue, origValue_negative, replacements={}):
